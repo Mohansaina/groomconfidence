@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append('entry.YOUR_ENTRY_ID', email);
         
         // Send email to Google Forms
-        fetch('https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse', {
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSf2ehjAqVuXbp58Ckc9/formResponse', {
             method: 'POST',
             body: formData
         })

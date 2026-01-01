@@ -1,0 +1,32 @@
+{
+  "name": "groomconfidence",
+  "version": "1.0.0",
+  "description": "A daily grooming & confidence app that helps men understand what hairstyle truly suits them.",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server . -p 8000",
+    "dev": "http-server . -p 8000 -c-1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohansaina/groomconfidence.git"
+  },
+  "keywords": [
+    "grooming",
+    "confidence",
+    "men",
+    "selfie",
+    "fashion",
+    "style"
+  ],
+  "author": "Mohansaina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mohansaina/groomconfidence/issues"
+  },
+  "homepage": "https://github.com/Mohansaina/groomconfidence#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

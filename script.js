@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Create form data for Google Forms
         const formData = new FormData();
-        formData.append('entry.YOUR_ENTRY_ID', email);
+        formData.append('entry.YOUR_EMAIL_ENTRY_ID', email);
         
         // Send email to Google Forms
         fetch('https://docs.google.com/forms/d/e/1FAIpQLSf2ehjAqVuXbp58Ckc9/formResponse', {

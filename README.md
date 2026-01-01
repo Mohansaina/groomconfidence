@@ -55,10 +55,11 @@ Example:
 - You still need to find the correct entry ID for your email field (replace `1234567890` with the actual ID)
 
 To find the entry ID:
-1. Open your Google Form in edit mode
-2. Add or select the email field
-3. Look at the URL or inspect the HTML to find the entry ID
-4. Replace `1234567890` with the actual entry ID in both `index.html` and `script.js`
+1. Go to your Google Form: https://docs.google.com/forms/d/e/1FAIpQLSf2ehjAqVuXbp58Ckc9/edit
+2. Click on the email field you created
+3. Look at the address bar - you'll see a parameter like `entry_id=1234567890` or similar
+4. Or inspect the form HTML to find the input field name which looks like `entry.1234567890`
+5. Replace `YOUR_EMAIL_ENTRY_ID` with the actual entry ID in both `index.html` and `script.js`
 
 ## Alternative: Using Formspree
 

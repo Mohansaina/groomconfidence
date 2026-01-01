@@ -148,6 +148,16 @@ section {
     box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
 }
 
+.btn-primary i.arrow {
+    margin-left: 8px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover i.arrow {
+    transform: translateX(5px);
+}
+
 /* Problem Section */
 .problem {
     background-color: #fff;

@@ -17,8 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // In a real implementation, you would send the email to your server here
-            // For this demo, we'll just show a success message
             addToWaitlist(email);
         });
     }
@@ -37,19 +35,31 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.textContent = 'Processing...';
         submitButton.disabled = true;
         
-        // Simulate API call delay
-        setTimeout(() => {
-            // In a real implementation, you would send the email to your server here
-            // For this demo, we'll just show a success message
-            showFormMessage('Thank you! You\'ve been added to our early access list.', 'success');
-            
-            // Reset form
-            waitlistForm.reset();
-            
+        // Create form data for Google Forms
+        const formData = new FormData();
+        formData.append('entry.YOUR_ENTRY_ID', email);
+        
+        // Send email to Google Forms
+        fetch('https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                showFormMessage('Thank you! You\'ve been added to our early access list.', 'success');
+                waitlistForm.reset();
+            } else {
+                showFormMessage('There was an error. Please try again.', 'error');
+            }
+        })
+        .catch(error => {
+            showFormMessage('There was an error. Please try again.', 'error');
+        })
+        .finally(() => {
             // Reset button state
             submitButton.textContent = originalButtonText;
             submitButton.disabled = false;
-        }, 1500);
+        });
     }
     
     // Function to show form message

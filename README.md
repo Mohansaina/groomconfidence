@@ -49,7 +49,7 @@ To collect emails from the waitlist form using Google Forms:
 7. Replace `YOUR_GOOGLE_FORM_ID` and `YOUR_ENTRY_ID` in both `index.html` and `script.js`
 
 Example:
-- Google Form URL: `https://docs.google.com/forms/d/e/1FAIpQLScnWKm9N2nL6AAhcGG9/viewform?usp=sf_link`
+- Google Form URL: `https://docs.google.com/forms/d/e/1FAIpQLScnWKm9N2nL6AAhcGG9/viewform`
 - Form Response URL: `https://docs.google.com/forms/d/e/1FAIpQLScnWKm9N2nL6AAhcGG9/formResponse`
 - The `YOUR_GOOGLE_FORM_ID` has been updated with your form ID
 - You still need to find the correct entry ID for your email field (replace `YOUR_EMAIL_ENTRY_ID` with the actual ID)
@@ -61,7 +61,7 @@ To find the entry ID:
 4. Or inspect the form HTML to find the input field name which looks like `entry.1234567890`
 5. Replace `YOUR_EMAIL_ENTRY_ID` with the actual entry ID in both `index.html` and `script.js`
 
-Note: The form uses iframe submission to avoid CORS issues and ensure proper Google Forms integration.
+Note: The link opens the Google Form in a new tab for user convenience.
 
 ## Alternative: Using Formspree
 

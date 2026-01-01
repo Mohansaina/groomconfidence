@@ -68,21 +68,22 @@ function showFormMessage(message, type) {
     }
 }
 
-// Form submission handling
-document.addEventListener('DOMContentLoaded', function() {
-    const waitlistForm = document.getElementById('waitlist-form');
-    
-    if (waitlistForm) {
-        waitlistForm.addEventListener('submit', function(e) {
-            // Show processing message
-            showFormMessage('Processing...', 'success');
-            
-            // The form will submit to the iframe, so we don't prevent default
-            // The iframe handles the submission without page navigation
-            setTimeout(() => {
-                showFormMessage('Thank you! You\'ve been added to our mailing list.', 'success');
-                waitlistForm.reset();
-            }, 1500);
-        });
+// Waitlist form functionality
+// Note: Form functionality removed - using direct link to Google Form instead
+
+// Function to show form message
+function showFormMessage(message, type) {
+    const formMessage = document.getElementById('form-message');
+    if(formMessage) {
+        formMessage.textContent = message;
+        formMessage.className = `form-message ${type}`;
+        
+        // Clear message after 5 seconds
+        setTimeout(() => {
+            if(formMessage) {
+                formMessage.textContent = '';
+                formMessage.className = 'form-message';
+            }
+        }, 5000);
     }
-});
+}

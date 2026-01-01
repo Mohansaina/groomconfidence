@@ -74,13 +74,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (waitlistForm) {
         waitlistForm.addEventListener('submit', function(e) {
-            // Form is handled via direct submission to Google Forms
-            showFormMessage('Thank you! You\'ve been added to our mailing list.', 'success');
+            // Show processing message
+            showFormMessage('Processing...', 'success');
             
-            // Reset form after successful submission
+            // The form will submit to the iframe, so we don't prevent default
+            // The iframe handles the submission without page navigation
             setTimeout(() => {
+                showFormMessage('Thank you! You\'ve been added to our mailing list.', 'success');
                 waitlistForm.reset();
-            }, 1000);
+            }, 1500);
         });
     }
 });

@@ -157,10 +157,11 @@
         <div class="container">
             <h2>Join the Early Access List</h2>
             <p>We're building this thoughtfully. Join early.</p>
-            <form id="waitlist-form" class="waitlist-form">
-                <input type="email" name="email" id="email" placeholder="Your email address" required>
+            <form id="waitlist-form" class="waitlist-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfXd7xb4SDjNHmqhX89/formResponse" method="POST" target="_blank" onsubmit="this.target='formSubmitFrame'; setTimeout(function(){document.getElementById('formSubmitFrame').remove();}, 1000);">
+                <input type="email" name="entry.YOUR_EMAIL_ENTRY_ID" id="email" placeholder="Your email address" required>
                 <button type="submit" class="btn-primary">Get Early Access</button>
             </form>
+            <iframe name="formSubmitFrame" id="formSubmitFrame" style="display: none;"></iframe>
             <div id="form-message" class="form-message"></div>
         </div>
     </section>

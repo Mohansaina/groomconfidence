@@ -35,42 +35,31 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.textContent = 'Processing...';
         submitButton.disabled = true;
         
-        // Create a temporary form to submit to Google Forms
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSf2ehjAqVuXbp58Ckc9/formResponse';
-        form.target = 'formSubmitFrame';
+        // Create form data for Google Forms
+        const formData = new FormData();
+        formData.append('entry.YOUR_EMAIL_ENTRY_ID', email);
         
-        const emailInput = document.createElement('input');
-        emailInput.type = 'hidden';
-        emailInput.name = 'entry.YOUR_EMAIL_ENTRY_ID';  // You need to replace this with the actual entry ID
-        emailInput.value = email;
-        
-        form.appendChild(emailInput);
-        document.body.appendChild(form);
-        
-        // Create iframe for submission
-        const iframe = document.createElement('iframe');
-        iframe.name = 'formSubmitFrame';
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-        
-        // Submit the form
-        form.submit();
-        
-        // Clean up after submission
-        setTimeout(() => {
-            document.body.removeChild(form);
-            document.body.removeChild(iframe);
-        }, 1000);
-        
-        // Show success message
-        showFormMessage('Thank you! You\'ve been added to our early access list.', 'success');
-        waitlistForm.reset();
-        
-        // Reset button state
-        submitButton.textContent = originalButtonText;
-        submitButton.disabled = false;
+        // Send email to Google Forms
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSfXd7xb4SDjNHmqhX89/formResponse', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                showFormMessage('Thank you! You\'ve been added to our early access list.', 'success');
+                waitlistForm.reset();
+            } else {
+                showFormMessage('There was an error. Please try again.', 'error');
+            }
+        })
+        .catch(error => {
+            showFormMessage('There was an error. Please try again.', 'error');
+        })
+        .finally(() => {
+            // Reset button state
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+        });
     }
     
     // Function to show form message

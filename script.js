@@ -1,80 +1,5 @@
-// Waitlist form functionality
+// Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
-    const waitlistForm = document.getElementById('waitlist-form');
-    const emailInput = document.getElementById('email');
-    const formMessage = document.getElementById('form-message');
-    
-    if (waitlistForm) {
-        waitlistForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get email value
-            const email = emailInput.value.trim();
-            
-            // Validate email format
-            if (!isValidEmail(email)) {
-                showFormMessage('Please enter a valid email address.', 'error');
-                return;
-            }
-            
-            addToWaitlist(email);
-        });
-    }
-    
-    // Function to validate email format
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-    
-    // Function to add email to waitlist
-    function addToWaitlist(email) {
-        // Show loading state
-        const submitButton = waitlistForm.querySelector('button[type="submit"]');
-        const originalButtonText = submitButton.textContent;
-        submitButton.textContent = 'Processing...';
-        submitButton.disabled = true;
-        
-        // Create form data for Google Forms
-        const formData = new FormData();
-        formData.append('entry.YOUR_EMAIL_ENTRY_ID', email);
-        
-        // Send email to Google Forms
-        fetch('https://docs.google.com/forms/d/e/1FAIpQLSfXd7xb4SDjNHmqhX89/formResponse', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (response.ok) {
-                showFormMessage('Thank you! You\'ve been added to our early access list.', 'success');
-                waitlistForm.reset();
-            } else {
-                showFormMessage('There was an error. Please try again.', 'error');
-            }
-        })
-        .catch(error => {
-            showFormMessage('There was an error. Please try again.', 'error');
-        })
-        .finally(() => {
-            // Reset button state
-            submitButton.textContent = originalButtonText;
-            submitButton.disabled = false;
-        });
-    }
-    
-    // Function to show form message
-    function showFormMessage(message, type) {
-        formMessage.textContent = message;
-        formMessage.className = `form-message ${type}`;
-        
-        // Clear message after 5 seconds
-        setTimeout(() => {
-            formMessage.textContent = '';
-            formMessage.className = 'form-message';
-        }, 5000);
-    }
-    
-    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -122,3 +47,20 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 });
+
+// Function to show form message
+function showFormMessage(message, type) {
+    const formMessage = document.getElementById('form-message');
+    if(formMessage) {
+        formMessage.textContent = message;
+        formMessage.className = `form-message ${type}`;
+        
+        // Clear message after 5 seconds
+        setTimeout(() => {
+            if(formMessage) {
+                formMessage.textContent = '';
+                formMessage.className = 'form-message';
+            }
+        }, 5000);
+    }
+}

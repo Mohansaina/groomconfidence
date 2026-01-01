@@ -61,6 +61,8 @@ To find the entry ID:
 4. Or inspect the form HTML to find the input field name which looks like `entry.1234567890`
 5. Replace `YOUR_EMAIL_ENTRY_ID` with the actual entry ID in both `index.html` and `script.js`
 
+Note: The form uses iframe submission to avoid CORS issues and ensure proper Google Forms integration.
+
 ## Alternative: Using Formspree
 
 As an alternative to Google Forms, you can use Formspree:

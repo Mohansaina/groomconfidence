@@ -48,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Waitlist form functionality
+// Note: Form functionality removed - using direct link to Google Form instead
+
 // Function to show form message
 function showFormMessage(message, type) {
     const formMessage = document.getElementById('form-message');
@@ -64,3 +67,20 @@ function showFormMessage(message, type) {
         }, 5000);
     }
 }
+
+// Form submission handling
+document.addEventListener('DOMContentLoaded', function() {
+    const waitlistForm = document.getElementById('waitlist-form');
+    
+    if (waitlistForm) {
+        waitlistForm.addEventListener('submit', function(e) {
+            // Form is handled via direct submission to Google Forms
+            showFormMessage('Thank you! You\'ve been added to our mailing list.', 'success');
+            
+            // Reset form after successful submission
+            setTimeout(() => {
+                waitlistForm.reset();
+            }, 1000);
+        });
+    }
+});

@@ -316,6 +316,24 @@ section {
     text-align: center;
 }
 
+.google-form-container {
+    margin: 2rem auto;
+    max-width: 800px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.google-form-container iframe {
+    border: none;
+    border-radius: 10px;
+    transition: height 0.3s ease;
+}
+
+.google-form-container iframe:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
 .waitlist-form {
     display: flex;
     max-width: 500px;

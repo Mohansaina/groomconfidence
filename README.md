@@ -49,13 +49,13 @@ To collect emails from the waitlist form using Google Forms:
 7. Replace `YOUR_GOOGLE_FORM_ID` and `YOUR_ENTRY_ID` in both `index.html` and `script.js`
 
 Example:
-- Google Form URL: `https://docs.google.com/forms/d/e/1FAIpQLSf48sdtHxPkzRPeW5L7/viewform`
-- Form Response URL: `https://docs.google.com/forms/d/e/1FAIpQLSf48sdtHxPkzRPeW5L7/formResponse`
+- Google Form URL: `https://docs.google.com/forms/d/e/1FAIpQLSfsV49DiWH9kjpDVM87mWzq0YgBuX_1ccqAjwistWgTPrObNw/viewform?usp=sharing&ouid=105598606907556114017`
+- Form Response URL: `https://docs.google.com/forms/d/e/1FAIpQLSfsV49DiWH9kjpDVM87mWzq0YgBuX_1ccqAjwistWgTPrObNw/formResponse`
 - The `YOUR_GOOGLE_FORM_ID` has been updated with your form ID
 - You still need to find the correct entry ID for your email field (replace `YOUR_EMAIL_ENTRY_ID` with the actual ID)
 
 To find the entry ID:
-1. Go to your Google Form: https://docs.google.com/forms/d/e/1FAIpQLSf48sdtHxPkzRPeW5L7/edit
+1. Go to your Google Form: https://docs.google.com/forms/d/e/1FAIpQLSfsV49DiWH9kjpDVM87mWzq0YgBuX_1ccqAjwistWgTPrObNw/edit
 2. Click on the email field you created
 3. Look at the address bar - you'll see a parameter like `entry_id=1234567890` or similar
 4. Or inspect the form HTML to find the input field name which looks like `entry.1234567890`
